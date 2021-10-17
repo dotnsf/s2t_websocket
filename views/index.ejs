@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<title>MIC2STT</title>
+<script type="text/javascript" src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<link href="//use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet"/>
+<script src="/socket.io/socket.io.js"></script>
+<script src="./js/mic2stt.js"></script>
+<link href="./css/mic2stt.css" rel="stylesheet"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="apple-mobile-web-app-title" content="MIC2STT"/>
+
+</head>
+<body>
+
+<div class="container">
+<table class="table table-bordered">
+  <tr>
+    <td>
+      <button class="btn btn-success" id="recBtn" value="Rec" onClick="startRec();" style="display:block;"><i class="fa fa-microphone" aria-hidden="true"></i></button>
+      <button class="btn btn-danger" id="stopBtn" value="Stop" onClick="stopRec();" style="display:none;"><i class="fa fa-stop" aria-hidden="true"></i></button>
+    </td>
+    <td>
+      <select id="select_voice" name="select_voice">
+      </select>
+      <input type="button" class="btn btn-xs btn-primary" id="post_btn" value="POST" onClick="postAudio();"/>
+    </td>
+    <td>
+      <form name="frm1" id="frm1" enctype="multipart/mixed">
+      <input type="file" id="voice" name="voice"/>
+      </form>
+      <input type="button" class="btn btn-xs btn-success" id="upload_btn" value="UPLOAD" onClick="uploadAudio();"/>
+    </td>
+  </tr>
+</table>
+
+<div class="container">
+</div>
+
+<div class="container">
+  <ul id="stt_results">
+  </ul>
+</div>
+
+</body>
+</html>
